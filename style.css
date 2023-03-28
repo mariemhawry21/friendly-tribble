@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    /*### Primary*/
+
+    --DesaturatedRed: hsl(0, 36%, 70%);
+    --SoftRed: hsl(0, 93%, 68%);
+
+    /*### Neutral*/
+
+    --DarkGrayishRed: hsl(0, 6%, 24%);
+
+    /*### Gradients
+
+-Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%)
+- Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%)
+*/
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.sec2 {
+    width: 40%;
+    height: 100vh;
+    z-index: 10;
+}
+
+.sec2 img {
+    width: 100%;
+    height: 100%;
+}
+
+.sec1 {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100vh;
+    padding: 50px 200px;
+    z-index: 10;
+}
+
+.sec1 ::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    z-index: -1;
+}
+
+.sec1 ::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background-image: url(./images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.sec1 .top {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 5rem;
+    margin-top: 50px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+span {
+    color: var(--DesaturatedRed);
+    font-weight: 300;
+}
+
+p {
+    color: var(--DesaturatedRed);
+    margin-top: 20px;
+    line-height: 1.5;
+    padding-right: 80px;
+}
+
+form {
+    margin-top: 50px;
+    position: relative;
+    z-index: 10;
+}
+
+input {
+    position: relative;
+    width: 80%;
+    height: 50px;
+    border: 2px solid hsl(0, 36%, 70%);
+    border-radius: 20px;
+    color: hsl(0, 36%, 70%);
+    background-color: transparent;
+    padding: 20px;
+}
+input:focus , input:active {
+    border-color: var(--SoftRed);
+}
+button {
+    background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    position: absolute;
+    right: 40px;
+    display: block;
+    top: 0;
+    width: 100px; 
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 10px 10px 10px hsl(0, 36%, 70%, 20%);
+}
+
+button:hover {
+    cursor: pointer;
+    background-image: linear-gradient(135deg, #fbd9d8, #f7c9c9);
+}
+
+#show-msg {
+    display: none;
+    color: var(--SoftRed);
+    margin-left: 20px;
+    margin-top: 1px;
+    font-size: 14px;
+}
+
+#error {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 170px;
+    transform: translate(50%, 50%);
+}
+
+.logo {
+    width: 200px;
+}
+
+.hid {
+    display:none;
+}
+
+@media (max-width: 700px) {
+    .top {
+        display: flex;
+        flex-direction: column;
+    }
+    .hid  {
+        display: block;
+        margin-top: 20px;
+    }
+    .hid img {
+        width: 100%;
+    }
+    .logo {
+        width: 150px;
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+    .sec1 {
+        width: 100%;
+        padding: 0;
+        height: 100%;   
+        justify-content: center;
+        background-color: #fff8f9;   
+    }
+    .sec1 ::after {
+        width: 100%;
+        content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    }
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    p {
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .sec2 {
+        display: none;
+    }
+    .sec2 img {
+        display: none;
+    }
+    form {
+        margin-bottom: 50px;
+        margin-left: 15px;
+    }
+    #show-msg {
+        text-align: start;
+    }
+}
